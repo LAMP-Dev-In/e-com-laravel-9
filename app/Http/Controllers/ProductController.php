@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
+
 
 class ProductController extends Controller
 {
     //
     function index()
     {
-        return "Welcome to product page";
+        return view('product');
     }
 }

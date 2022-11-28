@@ -33,5 +33,15 @@
         .slider-text{
             background-color: #353e368c !important;
         }
+        .tranding-image{
+            height: 100px;
+        }
+        .tranding-item{
+            float: left;
+            width: 20%;
+        }
+        .tranding-wrapper{
+            margin: 30px;
+        }
     </style>
 </html>

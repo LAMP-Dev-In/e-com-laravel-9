@@ -11,12 +11,14 @@
       <div class="carousel-inner">
         @foreach($products as $product)
         <div class="carousel-item {{$product->id==1?'active':''}}">
-          <img class="slider-img" src="{{$product->gallery}}" class="d-block w-100" alt="{{$product->name}}">
-          <div class="carousel-caption d-none d-md-block slider-text">
-            <h5>{{$product->name}}</h5>
-            <p>{{$product->description}}</p>
-          </div>
-        </div>      
+          <a href="detail/{{$product->id}}">
+            <img class="slider-img" src="{{$product->gallery}}" class="d-block w-100" alt="{{$product->name}}">
+            <div class="carousel-caption d-none d-md-block slider-text">
+              <h5>{{$product->name}}</h5>
+              <p>{{$product->description}}</p>
+            </div>
+          </a> 
+        </div>     
         @endforeach
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -30,14 +32,17 @@
     </div>
 
     <div class="tranding-wrapper">
-      <h3>Trending Products</h3>
+      <h3>{{$brand}} - Trending Products</h3>
       @foreach($products as $product)
-        <div class="tranding-item">
-          <img class="tranding-image" src="{{$product->gallery}}" class="d-block w-100" alt="{{$product->name}}">
-          <div class="">
-            <h5>{{$product->name}}</h5>
-          </div>
-        </div>      
+          <div class="tranding-item">
+            <a href="detail/{{$product->id}}">
+              <img class="tranding-image" src="{{$product->gallery}}" class="d-block w-100" alt="{{$product->name}}">
+              <div class="">
+                <h5>{{$product->name}}</h5>
+              </div>
+            </a>  
+          </div>   
+      
         @endforeach
     </div>
 </div>

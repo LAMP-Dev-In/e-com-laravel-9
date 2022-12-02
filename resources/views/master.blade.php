@@ -38,10 +38,13 @@
         }
         .tranding-item{
             float: left;
-            width: 20%;
+            width: 16%;
         }
         .tranding-wrapper{
             margin: 30px;
+        }
+        .detail-img{
+            height: 200px;
         }
     </style>
 </html>

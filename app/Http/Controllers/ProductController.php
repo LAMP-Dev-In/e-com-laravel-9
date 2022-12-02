@@ -19,7 +19,9 @@ class ProductController extends Controller
 
     function detail(int $id)
     {
-        return Product::find($id);
+        $data =  Product::find($id);
+
+        return view('detail')->with('product', $data);
     }
 
     function store(Request $request)

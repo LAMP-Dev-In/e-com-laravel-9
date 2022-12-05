@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
@@ -60,4 +61,20 @@ class ProductController extends Controller
 
 
     }
+
+    function addToCart(Request $request)
+    {
+        if($request->session()->has('user')){
+            $cart = new Cart();
+            $cart->user_id = $request->session()->get('user')->id;
+            $cart->product_id = $request->product_id;
+            $cart->save();
+
+            return redirect('/');
+        } else{
+            return redirect('/login');
+        }
+    }
+
+
 }

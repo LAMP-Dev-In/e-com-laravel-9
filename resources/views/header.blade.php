@@ -1,3 +1,8 @@
+<?php 
+  use App\Http\Controllers\ProductController;
+  $cart_count = ProductController::cartItemCount();
+?>
+
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">{{$brand}}</a>
@@ -19,7 +24,7 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li class="nav-item"><a class="nav-link" href="#">Cart(0)</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Cart({{$cart_count}})</a></li>
       </ul>
     </div>
   </div>

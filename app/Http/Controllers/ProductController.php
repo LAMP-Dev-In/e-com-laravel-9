@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Product;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Http\Request;
-
 
 class ProductController extends Controller
 {
@@ -74,6 +72,14 @@ class ProductController extends Controller
         } else{
             return redirect('/login');
         }
+    }
+
+    static function cartItemCount()
+    {        
+        $cart_count = (session('user'))
+        ? Cart::where('user_id', session('user')->id)->count() : 0 ;
+        
+        return $cart_count;
     }
 
 

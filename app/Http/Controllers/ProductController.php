@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -80,6 +81,17 @@ class ProductController extends Controller
         ? Cart::where('user_id', session('user')->id)->count() : 0 ;
         
         return $cart_count;
+    }
+
+    function cartList()
+    {
+        $cartitems = DB::table('cart')
+                    ->join('products', 'cart.product_id', '=', 'products.id')
+                    ->where('cart.user_id', session('user')->id)
+                    ->select('products.*')
+                    ->get();
+
+        return view('cartlist')->with('cartitems', $cartitems);
     }
 
 

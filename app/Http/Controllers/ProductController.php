@@ -101,5 +101,15 @@ class ProductController extends Controller
         return redirect('cartlist');
     }
 
+    function orderNow()
+    {
+       $total_amount = DB::table('cart')
+        ->join('products', 'cart.product_id', '=', 'products.id')
+        ->where('cart.user_id', session('user')->id)
+        ->sum('products.price');
+
+        return view('ordernow')->with('total_amount', $total_amount);
+    }
+
 
 }

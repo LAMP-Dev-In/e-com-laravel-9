@@ -7,7 +7,7 @@
         </div>
         <div class="col-sm-6">
             <h2>{{$product->name}}</h2>
-            <h3>Price : {{$product->price}}</h3>
+            <h3>Price : ${{$product->price}}</h3>
             <h4>Detail : {{$product->description}}</h4>
             <h4>category : {{$product->category}} </h4>
             <br><br>

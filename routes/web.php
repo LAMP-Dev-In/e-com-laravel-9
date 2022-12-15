@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -28,10 +30,9 @@ Route::get('/logout', function () {
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/', [ProductController::class, 'index']);
 Route::get('/detail/{id}', [ProductController::class, 'detail']);
-Route::post('/add_to_cart', [ProductController::class, 'addToCart']);
-Route::get('/cartlist', [ProductController::class, 'cartList']); 
-Route::get('/removecart/{id}', [ProductController::class, 'removeCartItem']);
-Route::get('/ordernow', [ProductController::class, 'orderNow']);
-
-
+Route::post('/add_to_cart', [CartController::class, 'addToCart']);
+Route::get('/cartlist', [CartController::class, 'cartList']); 
+Route::get('/removecart/{id}', [CartController::class, 'removeCartItem']);
+Route::get('/ordernow', [OrderController::class, 'orderNow']);
+Route::post('/placeorder', [OrderController::class, 'placeOrder']);
 

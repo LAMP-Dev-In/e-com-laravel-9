@@ -1,6 +1,6 @@
 <?php 
-  use App\Http\Controllers\ProductController;
-  $cart_count = ProductController::cartItemCount();
+  use App\Http\Controllers\CartController;
+  $cart_count = CartController::cartItemCount();
 ?>
 
 <nav class="navbar navbar-expand-lg bg-light">
@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li>
           <a class="nav-link" href="#">Orders</a>

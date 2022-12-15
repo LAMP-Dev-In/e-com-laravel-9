@@ -23,19 +23,19 @@
         </tbody>
         </table>
         <div>
-        <form>
+        <form action="placeorder" method="post">
+            @csrf
             <div class="mb-3">
                 <textarea class="form-control" placeholder="Enter your address" name="address" cols="20" rows="5"></textarea>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Payment Method</label><br>
-                <input type="radio" name="payment"><span> Online payment</span><br><br>
-                <input type="radio" name="payment"><span> EMI payment</span><br><br>
-                <input type="radio" name="payment"><span> Cash on Delivery(COD)</span><br><br>
-
-            </div>
-            
-            <button type="submit" class="btn btn-primary">Make Payment</button>
+                <input type="radio" value="cash" name="payment"><span> Cash payment</span><br>
+                <input type="radio" value="online" name="payment"><span> Online payment</span><br>
+                <input type="radio" value="emi" name="payment"><span> EMI payment</span><br>
+                <input type="radio" value="cod" name="payment"><span> Cash on Delivery(COD)</span><br>
+            </div>            
+            <button type="submit" class="btn btn-primary">Place Order</button>
         </form>
         </div>
     </div>

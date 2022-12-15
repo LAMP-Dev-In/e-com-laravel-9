@@ -22,19 +22,22 @@ class OrderController extends Controller
     function placeOrder(Request $request)
     {
         $mycart =  Cart::where('user_id', session('user')->id)->get();
+
+        //make my cart items to order
         foreach ($mycart as $cartitem) {
-            $order = new Order();
-            $order->product_id = $cartitem->product_id;
-            $order->user_id = $cartitem->user_id;
-            $order->status = 'pending';
-            $order->payment_method = $request->payment;
-            $order->payment_status = 'pending';
-            $order->address = $request->address;
-            $order->created_at = now();
-            $order->updated_at = now();
-            $order->save();
+            Order::create([
+                'product_id'     => $cartitem->product_id,
+                'user_id'        => $cartitem->user_id,
+                'status'         => 'pending',
+                'payment_method' => $request->payment,
+                'payment_status' => 'pending',
+                'address'        => $request->address,
+                'created_at'     => now(),
+                'updated_at'     => now()
+            ]);
         }
 
+        //empty my cart
         Cart::where('user_id', session('user')->id)->delete();
 
         return redirect('/');

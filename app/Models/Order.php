@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'product_id',
+        'user_id',
+        'status',
+        'payment_method',
+        'payment_status',
+        'address',
+        'created_at',
+        'updated_at'
+    ];
 }

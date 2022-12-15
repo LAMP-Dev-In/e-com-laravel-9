@@ -2,7 +2,10 @@
 @section("content")
 <div class="custom-product">
     <div class="col-sm-10">
-        <div class="tranding-wrapper">
+        <div class="tranding-wrapper">            
+            @if($cartitems->count()==0)
+            <h4>Cart is empty</h4>
+            @else
             <h4>Cart Items</h4>
             <a class="btn btn-success" href="ordernow">Order Now</a><br><br>
             @foreach($cartitems as $cartitem)
@@ -25,7 +28,8 @@
                 </div>
             @endforeach
             <a class="btn btn-success" href="ordernow">Order Now</a>
-        </div>
+        </div>        
+        @endif
     </div>
 </div>
 @endsection

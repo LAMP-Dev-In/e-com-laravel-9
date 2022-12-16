@@ -27,12 +27,14 @@ Route::get('/logout', function () {
     return redirect('login');
 });
 
-Route::post('/login', [UserController::class, 'login']);
+Route::post('login', [UserController::class, 'login']);
 Route::get('/', [ProductController::class, 'index']);
-Route::get('/detail/{id}', [ProductController::class, 'detail']);
-Route::post('/add_to_cart', [CartController::class, 'addToCart']);
-Route::get('/cartlist', [CartController::class, 'cartList']); 
-Route::get('/removecart/{id}', [CartController::class, 'removeCartItem']);
-Route::get('/ordernow', [OrderController::class, 'orderNow']);
-Route::post('/placeorder', [OrderController::class, 'placeOrder']);
+Route::get('detail/{id}', [ProductController::class, 'detail']);
+Route::post('add_to_cart', [CartController::class, 'addToCart']);
+Route::get('cartlist', [CartController::class, 'cartList']); 
+Route::get('removecart/{id}', [CartController::class, 'removeCartItem']);
+Route::get('ordernow', [OrderController::class, 'orderNow']);
+Route::post('placeorder', [OrderController::class, 'placeOrder']);
+Route::post('buynow', [OrderController::class, 'buyNow']);
+
 

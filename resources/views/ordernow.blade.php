@@ -34,7 +34,10 @@
                 <input type="radio" value="online" name="payment"><span> Online payment</span><br>
                 <input type="radio" value="emi" name="payment"><span> EMI payment</span><br>
                 <input type="radio" value="cod" name="payment"><span> Cash on Delivery(COD)</span><br>
-            </div>            
+            </div> 
+            @if(!empty($buynow_productid))           
+            <input type="hidden" name="buynow_productid" value="{{$buynow_productid}}">
+            @endif
             <button type="submit" class="btn btn-primary">Place Order</button>
         </form>
         </div>

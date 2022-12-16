@@ -11,14 +11,17 @@
             <h4>Detail : {{$product->description}}</h4>
             <h4>category : {{$product->category}} </h4>
             <br><br>
-            <form action="/add_to_cart" method="POST">
+            <form name="frmAddToCart" action="/add_to_cart" method="POST">
                 @csrf
                 <input type="hidden" name="product_id" value="{{$product->id}}">
                 <button class="btn btn-primary">Add to Cart</button>
-
             </form>
             <br><br>
-            <button class="btn btn-success">Buy Now</button>
+            <form name="frmBuyNow" action="/buynow" method="POST">
+                @csrf
+                <input type="hidden" name="product_id" value="{{$product->id}}">
+                <button class="btn btn-success">Buy Now</button>
+            </form>
             <br><br>
             <a href="/">Go Back</a>
         </div>

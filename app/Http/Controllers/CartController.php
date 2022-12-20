@@ -11,10 +11,13 @@ class CartController extends Controller
     function addToCart(Request $request)
     {
         if($request->session()->has('user')){
-            $cart = new Cart();
-            $cart->user_id = $request->session()->get('user')->id;
-            $cart->product_id = $request->product_id;
-            $cart->save();
+
+            Cart::create([
+                'user_id'       => session('user')->id,
+                'product_id'    => $request->product_id,
+                'created_at'    => now(),
+                'updated_at'    => now()
+            ]);
 
             return redirect('/');
         } else{

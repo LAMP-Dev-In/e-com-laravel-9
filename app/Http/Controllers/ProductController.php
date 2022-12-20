@@ -25,17 +25,18 @@ class ProductController extends Controller
     function store(Request $request)
     {
         try {
+            
+            $product = [
+                    'name'          => $request->name,
+                    'price'         => $request->price,
+                    'category'      => $request->category,
+                    'description'   => $request->description,
+                    'gallery'       => $request->gallery,
+                    'created_at'    => now(),
+                    'updated_at'    => now()
+                    ];
 
-            //code...
-            $product = new Product();
-            $product->name = $request->name;
-            $product->price = $request->price;
-            $product->category = $request->category;
-            $product->description = $request->description;
-            $product->gallery = $request->gallery;
-            $product->created_at = now();
-            $product->updated_at = now();
-            $product->save();
+            Product::create($product);
 
             return response()->json([
                 'message' => 'product created successfully',
@@ -54,9 +55,7 @@ class ProductController extends Controller
                 'err' => $th
             ]);
         }
-
-
-
+        
     }
 
 

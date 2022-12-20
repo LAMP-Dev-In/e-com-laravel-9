@@ -20,4 +20,18 @@ class UserController extends Controller
             return redirect('/');
         }
     }
+
+    function register(Request $request)
+    {
+        User::create([
+            'name'          => $request->name,
+            'email'         => $request->email,
+            'password'      => HASH::make($request->password),
+            'created_at'    => now(),
+            'updated_at'    => now()
+        ]);
+
+        return redirect('/login');
+        
+    }
 }

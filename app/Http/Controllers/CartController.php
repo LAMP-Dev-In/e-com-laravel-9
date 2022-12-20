@@ -32,6 +32,8 @@ class CartController extends Controller
 
     function cartList()
     {
+        if(!session('user')) return;
+
         $cartitems = DB::table('cart')
                     ->join('products', 'cart.product_id', '=', 'products.id')
                     ->where('cart.user_id', session('user')->id)

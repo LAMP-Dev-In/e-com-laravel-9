@@ -15,7 +15,7 @@
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li>
-          <a class="nav-link" href="#">Orders</a>
+          <a class="nav-link" href="/myorders">Orders</a>
         </li>
        </ul>
       <form class="d-flex" role="search">

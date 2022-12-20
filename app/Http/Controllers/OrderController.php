@@ -87,4 +87,17 @@ class OrderController extends Controller
         
     }
 
+    function myOrders()
+    {
+        if(empty(session('user'))) return redirect('/login');
+
+        $myorders = DB::table('orders')
+        ->join('products', 'orders.product_id', '=', 'products.id')
+        ->where('orders.user_id', session('user')->id)
+        ->get();
+
+        return view('myorders')->with('myorders', $myorders);
+
+    }
+
 }
